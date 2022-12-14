@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Tapestry
+    uniqueID: 1496116153
+    locked: 0
