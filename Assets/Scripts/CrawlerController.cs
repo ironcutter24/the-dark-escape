@@ -7,12 +7,15 @@ public class CrawlerController : MonoBehaviour
     [SerializeField]
     Animator anim;
 
+    [SerializeField]
+    float moveSpeed = 10f;
+
     bool isMoving = false;
 
     void Update()
     {
         if (!isMoving) return;
-        transform.Translate(Vector3.forward * 13f * Time.deltaTime);
+        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
     }
 
     public void InitAnimation()

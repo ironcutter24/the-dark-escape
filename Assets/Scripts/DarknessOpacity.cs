@@ -19,7 +19,7 @@ public class DarknessOpacity : MonoBehaviour
     Color lightOnColor = new Color(0f, 0f, 0f, .9f);
 
     [SerializeField]
-    Color lightOffColor = new Color(0f, 0f, 0f, 1f);
+    Color lightOffColor = new Color(0f, 0f, 0f, .98f);
 
     void Start()
     {
@@ -28,6 +28,8 @@ public class DarknessOpacity : MonoBehaviour
 
     void OnLightStateChange(bool state)
     {
+
+
         var color = state ? lightOnColor : lightOffColor;
         darkness.color = color;
         lanternFade.color = color;

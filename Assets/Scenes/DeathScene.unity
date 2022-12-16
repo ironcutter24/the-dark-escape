@@ -538,6 +538,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   crawler: {fileID: 777452061}
   VFX: {fileID: 618482538}
+  stopTime: 1.8
 --- !u!4 &820977106
 Transform:
   m_ObjectHideFlags: 0

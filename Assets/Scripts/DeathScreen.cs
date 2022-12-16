@@ -11,6 +11,7 @@ public class DeathScreen : MonoBehaviour
     [SerializeField]
     VFXManager VFX;
 
+    [SerializeField]
     float stopTime = 2.2f;
 
     void Start()
