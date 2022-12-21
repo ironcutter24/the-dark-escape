@@ -16,7 +16,7 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.I))
             LoadDeathScene();
     }
 

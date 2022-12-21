@@ -32,7 +32,12 @@ public class Controller2D : Singleton<Controller2D>
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            // Interact
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             LanternState = !LanternState;
             OnLightStateChange(LanternState);
@@ -57,9 +62,23 @@ public class Controller2D : Singleton<Controller2D>
             transform.localScale = new Vector3(move.x < 0f ? -1f : 1f, 1f, 1f);
         }
 
-        rb.MovePosition(rb.position + move * moveSpeed * Time.deltaTime);
+        rb.MovePosition(rb.position + move * GetMoveSpeed() * Time.deltaTime);
 
         anim.SetBool("IsWalking", move.magnitude > 0f);
+    }
+
+    float GetMoveSpeed()
+    {
+        float speed = moveSpeed;
+
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            speed = moveSpeed * 3f;
+        }
+#endif
+
+        return speed;
     }
 
     public void SetCover(bool state)

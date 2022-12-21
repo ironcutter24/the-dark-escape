@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BG
+    uniqueID: 2344345703
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
@@ -47,6 +50,12 @@ TagManager:
   - name: Tapestry
     uniqueID: 1496116153
     locked: 0
+  - name: FG
+    uniqueID: 3930129457
+    locked: 0
   - name: Darkness
     uniqueID: 1679491675
+    locked: 0
+  - name: Collisions
+    uniqueID: 809970329
     locked: 0

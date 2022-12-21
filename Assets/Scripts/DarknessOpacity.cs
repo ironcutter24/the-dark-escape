@@ -23,6 +23,8 @@ public class DarknessOpacity : MonoBehaviour
 
     void Start()
     {
+        darkness.gameObject.SetActive(true);
+
         Controller2D.Instance.OnLightStateChange += OnLightStateChange;
     }
 
