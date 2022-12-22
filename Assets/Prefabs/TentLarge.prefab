@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3563010756572370234}
   - component: {fileID: 3563010756572370235}
+  - component: {fileID: 4454770900441428907}
+  - component: {fileID: 4421047100127049534}
   m_Layer: 0
   m_Name: TentLarge
   m_TagString: Untagged
@@ -70,10 +72,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1496116153
+  m_SortingLayerID: 1122928369
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 642503366, guid: fc125cd2b902af1428138adb4c7f6ec4, type: 3}
+  m_Sprite: {fileID: -2129830104, guid: fc125cd2b902af1428138adb4c7f6ec4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -83,4 +85,42 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
+--- !u!61 &4454770900441428907
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3563010756572370236}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.12, y: 0.23}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 3.5, y: 2.5}
+    newSize: {x: 1.12, y: 0.8}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.44, y: 0.4}
+  m_EdgeRadius: 0
+--- !u!114 &4421047100127049534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3563010756572370236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294e2c1dfdaccc54a84735ecbb6ae7b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

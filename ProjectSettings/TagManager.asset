@@ -47,12 +47,6 @@ TagManager:
   - name: Actor
     uniqueID: 1122928369
     locked: 0
-  - name: Tapestry
-    uniqueID: 1496116153
-    locked: 0
-  - name: FG
-    uniqueID: 3930129457
-    locked: 0
   - name: Darkness
     uniqueID: 1679491675
     locked: 0

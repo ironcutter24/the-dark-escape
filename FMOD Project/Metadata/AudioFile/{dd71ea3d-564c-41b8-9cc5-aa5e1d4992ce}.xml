@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{dd71ea3d-564c-41b8-9cc5-aa5e1d4992ce}">
+		<property name="assetPath">
+			<value>Ambient/Amb_Rumble.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>83.142857142857139</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bb4fda12-18f7-4dcd-8a18-c0bdc604fa4a}</destination>
+		</relationship>
+	</object>
+</objects>

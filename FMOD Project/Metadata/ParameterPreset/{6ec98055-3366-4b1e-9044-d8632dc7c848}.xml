@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{6ec98055-3366-4b1e-9044-d8632dc7c848}">
+		<property name="name">
+			<value>StrangeMusicVolume</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d1d62c3e-9278-4a3a-b2f0-2f95ded4be71}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{9e979628-392e-479c-b25d-f41d64c6e596}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{9e979628-392e-479c-b25d-f41d64c6e596}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<property name="seekSpeed">
+			<value>0.89999997615814209</value>
+		</property>
+		<property name="seekSpeedDescending">
+			<value>0.89999997615814209</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
+		</property>
+	</object>
+</objects>

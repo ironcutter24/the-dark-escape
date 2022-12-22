@@ -39,8 +39,7 @@ public class Controller2D : Singleton<Controller2D>
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            LanternState = !LanternState;
-            OnLightStateChange(LanternState);
+            ToggleLantern();
         }
 
 #if UNITY_EDITOR
@@ -81,9 +80,20 @@ public class Controller2D : Singleton<Controller2D>
         return speed;
     }
 
+    void ToggleLantern()
+    {
+        LanternState = !LanternState;
+        OnLightStateChange(LanternState);
+    }
+
     public void SetCover(bool state)
     {
         isUnderCover = state;
+    }
+
+    public void Death()
+    {
+        Debug.Log("Game Over");
     }
 
     float GetAxis(KeyCode min, KeyCode max)
