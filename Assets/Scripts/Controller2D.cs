@@ -30,6 +30,7 @@ public class Controller2D : Singleton<Controller2D>
 
     public event System.Action<bool> OnLightStateChange;
 
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -61,9 +62,33 @@ public class Controller2D : Singleton<Controller2D>
             transform.localScale = new Vector3(move.x < 0f ? -1f : 1f, 1f, 1f);
         }
 
+        if (Mathf.Approximately(move.magnitude, 0f))
+        {
+            if (stepsCoroutine != null)
+            {
+                StopCoroutine(stepsCoroutine);
+                stepsCoroutine = null;
+            }
+        }
+        else
+        if (stepsCoroutine == null)
+            stepsCoroutine = StartCoroutine(_StepsSounds());
+
         rb.MovePosition(rb.position + move * GetMoveSpeed() * Time.deltaTime);
 
         anim.SetBool("IsWalking", move.magnitude > 0f);
+    }
+
+    Coroutine stepsCoroutine;
+    IEnumerator _StepsSounds()
+    {
+        const float stepDuration = .666f;
+
+        while (true)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot("event:/Footsteps");
+            yield return new WaitForSeconds(stepDuration);
+        }
     }
 
     float GetMoveSpeed()

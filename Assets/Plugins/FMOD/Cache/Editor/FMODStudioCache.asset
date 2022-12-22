@@ -1,5 +1,53 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-8126581815160834110
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/TensionTrans/Intensity
+  m_EditorClassIdentifier: 
+  Name: Intensity
+  StudioPath: 
+  Min: 0
+  Max: 100
+  Default: 0
+  ID:
+    data1: 531697497
+    data2: 2962768345
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
+--- !u!114 &-8108539223010538177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbientLoop/CryVol
+  m_EditorClassIdentifier: 
+  Name: CryVol
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 2167781981
+    data2: 2861070089
+  Type: 0
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-5437665228548863824
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15,10 +63,117 @@ MonoBehaviour:
   Path: FMOD Project/FMOD Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638072696088572369
+  lastModified: 638072712275345828
   FileSizes:
   - Name: Desktop
-    Value: 864
+    Value: 1036
+  Exists: 1
+--- !u!114 &-3935637642554410989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Boom
+  m_EditorClassIdentifier: 
+  Path: event:/Boom
+  Guid:
+    Data1: -550625928
+    Data2: 1077141910
+    Data3: -1162066300
+    Data4: 1114905907
+  Banks:
+  - {fileID: 7911192849071794741}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 6000
+--- !u!114 &-2985277096699416535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/AmbientLoop
+  m_EditorClassIdentifier: 
+  Path: event:/AmbientLoop
+  Guid:
+    Data1: -797765244
+    Data2: 1095351299
+    Data3: 1150609043
+    Data4: 753095214
+  Banks:
+  - {fileID: 7911192849071794741}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -1017631713099248321}
+  - {fileID: -8108539223010538177}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 107200
+--- !u!114 &-2441208341764102962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Footsteps
+  m_EditorClassIdentifier: 
+  Path: event:/Footsteps
+  Guid:
+    Data1: -1477635610
+    Data2: 1164650583
+    Data3: -211148656
+    Data4: 60515573
+  Banks:
+  - {fileID: 7911192849071794741}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1017631713099248321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbientLoop/StrangeMusicVol
+  m_EditorClassIdentifier: 
+  Name: StrangeMusicVol
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 1490241923
+    data2: 3867472796
+  Type: 0
+  IsGlobal: 0
+  Labels: []
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -35,14 +190,46 @@ MonoBehaviour:
   EditorBanks:
   - {fileID: -5437665228548863824}
   - {fileID: 7911192849071794741}
-  EditorEvents: []
+  EditorEvents:
+  - {fileID: -3935637642554410989}
+  - {fileID: -2985277096699416535}
+  - {fileID: -2441208341764102962}
+  - {fileID: 6574392337750375214}
   EditorParameters: []
   MasterBanks:
   - {fileID: 7911192849071794741}
   StringsBanks:
   - {fileID: -5437665228548863824}
-  cacheTime: 638072696088572369
+  cacheTime: 638072712275345828
   cacheVersion: 131601
+--- !u!114 &6574392337750375214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/TensionTrans
+  m_EditorClassIdentifier: 
+  Path: event:/TensionTrans
+  Guid:
+    Data1: 347437037
+    Data2: 1324468393
+    Data3: 472369082
+    Data4: 463398981
+  Banks:
+  - {fileID: 7911192849071794741}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: -8126581815160834110}
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 70000
 --- !u!114 &7911192849071794741
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,8 +245,8 @@ MonoBehaviour:
   Path: FMOD Project/FMOD Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638072696088572369
+  lastModified: 638072712275330803
   FileSizes:
   - Name: Desktop
-    Value: 1036
+    Value: 3145376
   Exists: 1
