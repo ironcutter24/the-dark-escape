@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="ParameterPreset" id="{1bdefe9c-3ab9-499b-8cc5-001b6a2b60e2}">
+	<object class="ParameterPreset" id="{d19e732f-65ce-4317-b07f-1362cec54a84}">
 		<property name="name">
-			<value>CryVol</value>
+			<value>Tension</value>
 		</property>
 		<relationship name="folder">
 			<destination>{d1d62c3e-9278-4a3a-b2f0-2f95ded4be71}</destination>
 		</relationship>
 		<relationship name="parameter">
-			<destination>{5ff44b75-3f5f-4f54-bdc9-bcb2eb98dfac}</destination>
+			<destination>{d4720306-a9c3-47ea-a63c-6e0254985204}</destination>
 		</relationship>
 	</object>
-	<object class="GameParameter" id="{5ff44b75-3f5f-4f54-bdc9-bcb2eb98dfac}">
+	<object class="GameParameter" id="{d4720306-a9c3-47ea-a63c-6e0254985204}">
 		<property name="initialValue">
 			<value>0</value>
 		</property>
 		<property name="seekSpeed">
-			<value>2.2000000476837158</value>
+			<value>0.079999998211860657</value>
 		</property>
 		<property name="seekSpeedDescending">
-			<value>2.2000000476837158</value>
+			<value>1.6000000238418579</value>
+		</property>
+		<property name="seekSpeedAsymmetric">
+			<value>true</value>
 		</property>
 	</object>
 </objects>

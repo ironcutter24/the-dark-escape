@@ -23,8 +23,6 @@ public class DarknessOpacity : MonoBehaviour
 
     OldCinemaEffect cinemaEffect;
 
-    Coroutine fadeCoroutine;
-
     void Start()
     {
         darkness.gameObject.SetActive(true);
@@ -39,31 +37,39 @@ public class DarknessOpacity : MonoBehaviour
         darkness.color = color;
         //lanternFade.color = color;
         lanternMask.enabled = state;
+        cinemaEffect.enabled = isFading = !state;
 
-        cinemaEffect.enabled = !state;
-
-        if (state && fadeCoroutine != null)
-        {
-            StopCoroutine(fadeCoroutine);
-        }
-        else
-        {
-            fadeCoroutine = StartCoroutine(_FadeToBlack());
-        }
+        if (!state)
+            StartCoroutine(_FadeToBlack());
     }
 
+    bool isFading = false;
     IEnumerator _FadeToBlack()
     {
-        cinemaEffect.VignetteStrange = 76f;
+        const float min = 76f;
+        const float max = 93f;
 
-        while (cinemaEffect.VignetteStrange < 93f)
+        cinemaEffect.VignetteStrange = min;
+
+        var tenseSound = FMODUnity.RuntimeManager.CreateInstance("event:/TenseSound");
+        tenseSound.setParameterByName("Tension", 0f);
+        tenseSound.start();
+
+        while (cinemaEffect.VignetteStrange < max)
         {
             yield return null;
-            cinemaEffect.VignetteStrange += 1.8f * Time.deltaTime;
 
-            // Update fmod
+            if (!isFading)
+            {
+                tenseSound.setParameterByName("Tension", 0f);
+                yield break;
+            }
+
+            cinemaEffect.VignetteStrange += 1.8f * Time.deltaTime;
+            tenseSound.setParameterByName("Tension", Utility.Math.UMath.Normalize(cinemaEffect.VignetteStrange, min, max));
         }
 
+        tenseSound.setParameterByName("Tension", 0f);
         Controller2D.Instance.Death();
     }
 }

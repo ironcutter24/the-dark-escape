@@ -21,8 +21,5 @@
 		<property name="seekSpeedDescending">
 			<value>0.89999997615814209</value>
 		</property>
-		<property name="seekSpeedAsymmetric">
-			<value>true</value>
-		</property>
 	</object>
 </objects>

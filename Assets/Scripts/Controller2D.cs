@@ -109,6 +109,11 @@ public class Controller2D : Singleton<Controller2D>
     {
         LanternState = !LanternState;
         OnLightStateChange(LanternState);
+
+        if (LanternState)
+            FMODUnity.RuntimeManager.PlayOneShot("event:/LanternLit");
+        else
+            FMODUnity.RuntimeManager.PlayOneShot("event:/LanternBlown");
     }
 
     public void SetCover(bool state)
