@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: c31eb482838ec4646b421660a92b2a60
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Black Blood
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c209e74ed65aff24589d2e110b6852fb, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

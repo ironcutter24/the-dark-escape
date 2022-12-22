@@ -31,6 +31,8 @@ public class Controller2D : Singleton<Controller2D>
     public event System.Action<bool> OnLightStateChange;
 
 
+    public static Vector2 Pos => Instance.transform.position;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
