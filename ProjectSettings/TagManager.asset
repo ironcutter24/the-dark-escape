@@ -44,6 +44,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: VFX
+    uniqueID: 1468750567
+    locked: 0
   - name: Actor
     uniqueID: 1122928369
     locked: 0
