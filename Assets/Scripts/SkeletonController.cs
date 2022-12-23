@@ -10,7 +10,9 @@ public class SkeletonController : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     float sightDistance = 2f;
     [SerializeField, Range(0f, 4f)]
-    float caughtDistance = 1f;
+    float earingDistance = 1f;
+    [SerializeField, Range(0f, 2f)]
+    float killDistance = .5f;
     [SerializeField]
     LayerMask sightMask;
 
@@ -34,9 +36,24 @@ public class SkeletonController : MonoBehaviour
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
 
+        Controller2D.Instance.OnHide += PlayerHides;
+        Controller2D.Instance.OnShow += PlayerShows;
+
         anim.SetBool("IsMoving", true);
     }
 
+    void PlayerHides()
+    {
+        if (CanSeePlayer())
+            knowsPlayerPosition = true;
+    }
+
+    void PlayerShows()
+    {
+        knowsPlayerPosition = false;
+    }
+
+    bool knowsPlayerPosition = false;
     void FixedUpdate()
     {
         anim.SetBool("IsMoving", canWalk);
@@ -51,9 +68,8 @@ public class SkeletonController : MonoBehaviour
         {
             Vector2 move = waypoints[current].position - transform.position;
             move.Normalize();
-            Debug.Log("Can see player: " + CanSeePlayer(move));
 
-            if (CanSeePlayer(move))
+            if (CanSeePlayer() || knowsPlayerPosition)
             {
                 if (IsOnPlayerPath(waypoints[KeepInRange(current + (invertedPatrol ? 1 : -1))].position))
                 {
@@ -79,6 +95,12 @@ public class SkeletonController : MonoBehaviour
                 ProgressCurrentIndex();
             }
         }
+
+        if (!Controller2D.Instance.IsHidden && Vector2.Distance(rb.position, Controller2D.Pos) < killDistance)
+        {
+            if (!GameOver.Instance.State)
+                Controller2D.Instance.Death();
+        }
     }
 
     bool IsOnPlayerPath(Vector2 pos)
@@ -101,27 +123,19 @@ public class SkeletonController : MonoBehaviour
         return index;
     }
 
-    bool CanSeePlayer(Vector2 lookDirection)
+    bool CanSeePlayer()
     {
-        if (Controller2D.Instance.IsHidden) return false;
-
-        var playerDistance = Vector2.Distance(rb.position, Controller2D.Pos);
-        if (playerDistance < sightDistance)
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, Controller2D.Pos - rb.position, Mathf.Infinity, sightMask);
+        if (hit.rigidbody.gameObject.CompareTag("Player"))
         {
-            if (Vector2.Angle(lookDirection, Controller2D.Pos - rb.position) < 30)
+            var playerDistance = Vector2.Distance(rb.position, Controller2D.Pos);
+            if ((playerDistance < sightDistance && Controller2D.Instance.LanternState) ||
+                (playerDistance < earingDistance))
             {
-                RaycastHit2D hit = Physics2D.Raycast(rb.position, Controller2D.Pos - rb.position, Mathf.Infinity, sightMask);
-                if (hit.rigidbody.gameObject.CompareTag("Player"))
-                {
-                    return true;
-                }
-            }
-            else
-            if (playerDistance < caughtDistance)
-            {
-                return true;
+                return !Controller2D.Instance.IsHidden;
             }
         }
+
         return false;
     }
 
@@ -130,10 +144,25 @@ public class SkeletonController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
+        if (!Application.isPlaying) return;
+
+        Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, sightDistance);
 
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, earingDistance);
+
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, caughtDistance);
+        Gizmos.DrawWireSphere(transform.position, killDistance);
+
+        if (CanSeePlayer())
+        {
+            Gizmos.color = Color.green;
+
+            if (knowsPlayerPosition)
+                Gizmos.color = Color.yellow;
+
+            Gizmos.DrawLine(rb.position, Controller2D.Pos);
+        }
     }
 }

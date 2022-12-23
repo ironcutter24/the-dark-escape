@@ -6,6 +6,8 @@ public class HidingSpot : MonoBehaviour
 {
     void OnTriggerStay2D(Collider2D collision)
     {
+        if (!collision.CompareTag("Player")) return;
+
         var player = collision.gameObject.GetComponent<Controller2D>();
 
         bool isUnderCover = player != null && player.transform.position.y > transform.position.y;

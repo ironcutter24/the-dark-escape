@@ -28,8 +28,6 @@ public class DeathScreen : MonoBehaviour
 
     void FadeOut()
     {
-        VFX.EnableCinemaFX(true);
-        DOTween.To(() => VFX.GrainStrange, x => VFX.GrainStrange = x, 1f, 1.4f);
-        DOTween.To(() => VFX.VignetteStrange, x => VFX.VignetteStrange = x, .9f, .6f);
+        GameOver.Instance.SetTo(true);
     }
 }

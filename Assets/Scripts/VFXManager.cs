@@ -1,21 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class VFXManager : MonoBehaviour
 {
     OldCinemaEffect oldCinemaEffect;
 
-    void Start()
+    private void Start()
     {
-        oldCinemaEffect = GetComponent<OldCinemaEffect>();
+        oldCinemaEffect = Camera.main.GetComponent<OldCinemaEffect>();
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        Start();
     }
 
     public void EnableCinemaFX(bool state)
     {
         oldCinemaEffect.enabled = state;
     }
-
+    
     public float GrainStrange
     {
         get { return oldCinemaEffect.GrainStrange; }

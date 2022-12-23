@@ -70,6 +70,6 @@ public class DarknessOpacity : MonoBehaviour
         }
 
         tenseSound.setParameterByName("Tension", 0f);
-        Controller2D.Instance.Death();
+        GameOver.Instance.SetTo(true);
     }
 }

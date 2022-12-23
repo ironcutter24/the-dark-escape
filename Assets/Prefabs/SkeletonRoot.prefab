@@ -399,8 +399,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1.4
-  sightDistance: 4.2
-  caughtDistance: 0.8
+  sightDistance: 10
+  earingDistance: 4
+  killDistance: 0.5
   sightMask:
     serializedVersion: 2
     m_Bits: 768

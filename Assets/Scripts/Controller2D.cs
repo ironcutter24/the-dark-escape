@@ -33,8 +33,23 @@ public class Controller2D : Singleton<Controller2D>
 
     public static Vector2 Pos => Instance.transform.position;
 
+    public event System.Action OnHide;
+    public event System.Action OnShow;
+    bool wasHidden = false;
     void Update()
     {
+        if (IsHidden && !wasHidden)
+        {
+            OnHide();
+        }
+        if (!IsHidden && wasHidden)
+        {
+            OnShow();
+        }
+        wasHidden = IsHidden;
+
+        if (GameOver.Instance.State) return;
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Interact
@@ -59,6 +74,8 @@ public class Controller2D : Singleton<Controller2D>
 
     void FixedUpdate()
     {
+        if (GameOver.Instance.State) return;
+
         if (!Mathf.Approximately(move.x, 0f))
         {
             transform.localScale = new Vector3(move.x < 0f ? -1f : 1f, 1f, 1f);
@@ -99,9 +116,10 @@ public class Controller2D : Singleton<Controller2D>
 
 #if UNITY_EDITOR
         if (Input.GetKey(KeyCode.LeftShift))
-        {
             speed = moveSpeed * 3f;
-        }
+
+        if (Input.GetKey(KeyCode.G))
+            Death();
 #endif
 
         return speed;
@@ -126,6 +144,14 @@ public class Controller2D : Singleton<Controller2D>
     public void Death()
     {
         Debug.Log("Game Over");
+
+        if (stepsCoroutine != null)
+        {
+            StopCoroutine(stepsCoroutine);
+            stepsCoroutine = null;
+        }
+
+        GameManager.Instance.LoadDeathScene();
     }
 
     float GetAxis(KeyCode min, KeyCode max)
