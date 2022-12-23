@@ -9,6 +9,8 @@ public class GameManager : Singleton<GameManager>
     void Start()
     {
         DontDestroyOnLoad(gameObject);
+
+        Cursor.visible = false;
     }
 
     void Update()
