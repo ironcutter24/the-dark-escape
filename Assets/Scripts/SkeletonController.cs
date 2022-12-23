@@ -10,20 +10,23 @@ public class SkeletonController : MonoBehaviour
     [SerializeField, Range(0f, 10f)]
     float sightDistance = 2f;
     [SerializeField, Range(0f, 4f)]
-    float earingDistance = 1f;
+    float hearingDistance = 1f;
     [SerializeField, Range(0f, 2f)]
     float killDistance = .5f;
     [SerializeField]
     LayerMask sightMask;
 
+    [SerializeField]
+    bool isStanding = false;
+
     [Header("Navigation")]
     [SerializeField]
     float wpDistance = .4f;
-
+    [SerializeField]
+    int current = 0;
     [SerializeField]
     List<Transform> waypoints = new List<Transform>();
-
-    int current = 0;
+    
     bool canWalk = false;
     bool invertedPatrol = false;
 
@@ -39,6 +42,7 @@ public class SkeletonController : MonoBehaviour
         Controller2D.Instance.OnHide += PlayerHides;
         Controller2D.Instance.OnShow += PlayerShows;
 
+        anim.SetBool("IsStanding", isStanding);
         anim.SetBool("IsMoving", true);
     }
 
@@ -56,6 +60,13 @@ public class SkeletonController : MonoBehaviour
     bool knowsPlayerPosition = false;
     void FixedUpdate()
     {
+        if (!isStanding)
+        {
+            isStanding = Vector2.Distance(rb.position, Controller2D.Pos) < hearingDistance + 1.5f;
+            anim.SetBool("IsStanding", isStanding);
+            return;
+        }
+
         anim.SetBool("IsMoving", canWalk);
 
         if (waypoints.Count == 0 || !anim.GetBool("IsMoving"))
@@ -130,7 +141,7 @@ public class SkeletonController : MonoBehaviour
         {
             var playerDistance = Vector2.Distance(rb.position, Controller2D.Pos);
             if ((playerDistance < sightDistance && Controller2D.Instance.LanternState) ||
-                (playerDistance < earingDistance))
+                (playerDistance < hearingDistance))
             {
                 return !Controller2D.Instance.IsHidden;
             }
@@ -144,17 +155,16 @@ public class SkeletonController : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (!Application.isPlaying) return;
-
         Gizmos.color = Color.white;
         Gizmos.DrawWireSphere(transform.position, sightDistance);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, earingDistance);
+        Gizmos.DrawWireSphere(transform.position, hearingDistance);
 
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, killDistance);
 
+        if (!Application.isPlaying) return;
         if (CanSeePlayer())
         {
             Gizmos.color = Color.green;

@@ -5,7 +5,7 @@
 			<value>CreatureAttack</value>
 		</property>
 		<property name="outputFormat">
-			<value>2</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{30e37438-0298-4f89-8a8d-591ba2c1b274}</destination>
@@ -292,7 +292,6 @@
 	<object class="MixerBusEffectChain" id="{6acfadb5-7b5b-4688-aa35-66e127ce2ffa}">
 		<relationship name="effects">
 			<destination>{ed8378dc-4868-49c1-893e-68a481d161e6}</destination>
-			<destination>{8c0e951a-ac11-4e4d-a765-df2fd2063f31}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{ab8889df-b8df-489c-99b2-728fe85ae9a3}" />
@@ -328,7 +327,6 @@
 	</object>
 	<object class="MixerBusPanner" id="{307aaba0-8557-48b2-a3b7-26cba3f339df}" />
 	<object class="MixerBusFader" id="{ed8378dc-4868-49c1-893e-68a481d161e6}" />
-	<object class="SpatialiserEffect" id="{8c0e951a-ac11-4e4d-a765-df2fd2063f31}" />
 	<object class="MixerBusFader" id="{077cf02a-800e-463f-8524-3810e70d0ac2}" />
 	<object class="MixerBusFader" id="{2beb8d12-fddb-4592-8d0a-98d02b49c851}" />
 	<object class="MixerBusFader" id="{d48bcd7d-29b4-488e-8515-6563007baebb}" />
