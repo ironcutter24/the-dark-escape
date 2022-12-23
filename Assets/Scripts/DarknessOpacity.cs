@@ -1,3 +1,4 @@
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,12 +24,21 @@ public class DarknessOpacity : MonoBehaviour
 
     OldCinemaEffect cinemaEffect;
 
+    EventInstance tenseSound;
+
     void Start()
     {
         darkness.gameObject.SetActive(true);
         cinemaEffect = Camera.main.GetComponent<OldCinemaEffect>();
 
+        tenseSound = FMODUnity.RuntimeManager.CreateInstance("event:/TenseSound");
+
         Controller2D.Instance.OnLightStateChange += OnLightStateChange;
+    }
+
+    private void OnDestroy()
+    {
+        tenseSound.setParameterByName("Tension", 0f);
     }
 
     void OnLightStateChange(bool state)
@@ -51,7 +61,7 @@ public class DarknessOpacity : MonoBehaviour
 
         cinemaEffect.VignetteStrange = min;
 
-        var tenseSound = FMODUnity.RuntimeManager.CreateInstance("event:/TenseSound");
+        
         tenseSound.setParameterByName("Tension", 0f);
         tenseSound.start();
 

@@ -44,8 +44,13 @@ public class GameOver : Singleton<GameOver>
         text.gameObject.SetActive(State);
         VFX.EnableCinemaFX(State);
 
+        
+
         if (State)
         {
+            AudioManager.SetOn(FMODParameter.CryVol);
+            AudioManager.SetOn(FMODParameter.StrangeMusicVol);
+
             DOTween.To(() => VFX.GrainStrange, x => VFX.GrainStrange = x, 1f, 1.4f);
             DOTween.To(() => VFX.VignetteStrange, x => VFX.VignetteStrange = x, .9f, .6f)
                 .OnComplete(() => ShowText());
@@ -60,6 +65,10 @@ public class GameOver : Singleton<GameOver>
 
     void ResetGFX()
     {
+        AudioManager.SetOff(FMODParameter.CryVol);
+        AudioManager.SetOff(FMODParameter.StrangeMusicVol);
+        AudioManager.SetOff(FMODParameter.WinState);
+
         VFX.GrainStrange = 0f;
         VFX.VignetteStrange = 0f;
         text.color = GetWithAlpha(0f, text.color);

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{bbc5776d-65b9-4497-b61c-ed90ad42ae61}">
+		<property name="assetPath">
+			<value>DogSounds/Dog footsteps 4.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>0.31467120181405894</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{bb4fda12-18f7-4dcd-8a18-c0bdc604fa4a}</destination>
+		</relationship>
+	</object>
+</objects>

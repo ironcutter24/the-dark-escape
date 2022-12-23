@@ -38,6 +38,8 @@ public class Controller2D : Singleton<Controller2D>
     bool wasHidden = false;
     void Update()
     {
+        if (GameOver.Instance.State) return;
+
         if (IsHidden && !wasHidden)
         {
             OnHide();
@@ -47,8 +49,6 @@ public class Controller2D : Singleton<Controller2D>
             OnShow();
         }
         wasHidden = IsHidden;
-
-        if (GameOver.Instance.State) return;
 
         if (Input.GetKeyDown(KeyCode.E))
         {

@@ -14,17 +14,20 @@ public class WinManager : MonoBehaviour
         cam = Camera.main;
         cam.transform.position = new Vector3(0, -50, 0);
 
-        cam.transform.DOMoveY(0f, 3f)
+        AudioManager.SetOn(FMODParameter.WinState);
+
+        cam.transform.DOMoveY(0f, 5f)
             .SetEase(Ease.OutSine)
             .OnComplete(() => OnEndOfAnimation());
     }
 
-    private void Update()
+    void Update()
     {
         if (!endOfAnimation) return;
 
         if (Input.anyKeyDown)
         {
+            AudioManager.SetOff(FMODParameter.WinState);
             GameManager.Instance.LoadMainScene();
         }
     }

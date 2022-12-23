@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="AudioFile" id="{ca4db8fa-b13e-4b4a-95cc-58fd7c6f3326}">
 		<property name="assetPath">
-			<value>TenseBase.wav</value>
+			<value>Tense/TenseBase.wav</value>
 		</property>
 		<property name="isStreaming">
 			<value>true</value>

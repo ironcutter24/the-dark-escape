@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility.Patterns;
 
-public class AudioManager : MonoBehaviour
+public class AudioManager : Singleton<AudioManager>
 {
     public FMODUnity.EventReference ambientEvent;
 
     private FMOD.Studio.EventInstance ambient;
-
-    [SerializeField]
-    [Range(0f, 1f)]
-    private float CryVol, StrangeMusicVol;
 
     void Start()
     {
@@ -18,18 +15,20 @@ public class AudioManager : MonoBehaviour
         ambient.start();
     }
 
-#if UNITY_EDITOR
-    void Update()
+    public static void SetAmbientParameter(float val, FMODParameter px)
     {
-        ambient.setParameterByName("CryVol", CryVol);
-        ambient.setParameterByName("StrangeMusicVol", StrangeMusicVol);
-    }
-#endif
-
-    void SetAmbientParameter(float val, FMODParameter px)
-    {
-        ambient.setParameterByName(px.ToString(), val);
+        Instance.ambient.setParameterByName(px.ToString(), val);
     }
 
-    public enum FMODParameter { CryVol, StrangeMusicVol }
+    public static void SetOn(FMODParameter px)
+    {
+        Instance.ambient.setParameterByName(px.ToString(), 1f);
+    }
+
+    public static void SetOff(FMODParameter px)
+    {
+        Instance.ambient.setParameterByName(px.ToString(), 0f);
+    }
+
 }
+    public enum FMODParameter { CryVol, StrangeMusicVol, WinState }

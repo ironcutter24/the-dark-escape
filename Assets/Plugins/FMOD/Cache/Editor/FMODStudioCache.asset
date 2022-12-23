@@ -90,10 +90,10 @@ MonoBehaviour:
   Path: FMOD Project/FMOD Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638073450448320115
+  lastModified: 638074069198556748
   FileSizes:
   - Name: Desktop
-    Value: 1212
+    Value: 1252
   Exists: 1
 --- !u!114 &-3935637642554410989
 MonoBehaviour:
@@ -148,9 +148,34 @@ MonoBehaviour:
   Parameters:
   - {fileID: -1017631713099248321}
   - {fileID: -8108539223010538177}
+  - {fileID: -2510863169770516067}
   MinDistance: 1
   MaxDistance: 20
   Length: 107200
+--- !u!114 &-2510863169770516067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/AmbientLoop/WinState
+  m_EditorClassIdentifier: 
+  Name: WinState
+  StudioPath: 
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 3032148999
+    data2: 1550387394
+  Type: 1
+  IsGlobal: 0
+  Labels: []
+  Exists: 1
 --- !u!114 &-2441208341764102962
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,7 +255,7 @@ MonoBehaviour:
   - {fileID: 7911192849071794741}
   StringsBanks:
   - {fileID: -5437665228548863824}
-  cacheTime: 638073450448320115
+  cacheTime: 638074069198556748
   cacheVersion: 131601
 --- !u!114 &1575236650292435084
 MonoBehaviour:
@@ -354,8 +379,8 @@ MonoBehaviour:
   Path: FMOD Project/FMOD Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638073450448295096
+  lastModified: 638074069198546743
   FileSizes:
   - Name: Desktop
-    Value: 3601696
+    Value: 3602592
   Exists: 1

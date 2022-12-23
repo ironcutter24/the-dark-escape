@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{879afbc6-ad6f-4904-bcc7-15e46f8f82e4}">
+		<property name="name">
+			<value>WinState</value>
+		</property>
+		<relationship name="folder">
+			<destination>{d1d62c3e-9278-4a3a-b2f0-2f95ded4be71}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{9d7127ee-04fb-4e05-9731-80b85ea5962e}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{9d7127ee-04fb-4e05-9731-80b85ea5962e}">
+		<property name="parameterType">
+			<value>1</value>
+		</property>
+		<property name="maximum">
+			<value>2</value>
+		</property>
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
