@@ -9,6 +9,7 @@ public class ExitDoor : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("you win!");
+            GameManager.Instance.LoadWinScene();
         }
     }
 }

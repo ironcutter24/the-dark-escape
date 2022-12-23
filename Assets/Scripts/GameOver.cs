@@ -3,7 +3,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Utility.Patterns;
 using TMPro;
 
@@ -29,7 +28,7 @@ public class GameOver : Singleton<GameOver>
         {
             if (Input.anyKeyDown)
             {
-                SceneManager.LoadScene("MainScene");
+                GameManager.Instance.LoadMainScene();
                 endOfAnimation = false;
                 SetTo(false);
             }

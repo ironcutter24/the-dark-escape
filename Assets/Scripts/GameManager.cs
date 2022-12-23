@@ -16,12 +16,24 @@ public class GameManager : Singleton<GameManager>
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
+#if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.I))
             LoadDeathScene();
+#endif
+    }
+
+    public void LoadMainScene()
+    {
+        SceneManager.LoadScene("MainScene");
     }
 
     public void LoadDeathScene()
     {
         SceneManager.LoadScene("DeathScene");
+    }
+
+    public void LoadWinScene()
+    {
+        SceneManager.LoadScene("WinScene");
     }
 }
