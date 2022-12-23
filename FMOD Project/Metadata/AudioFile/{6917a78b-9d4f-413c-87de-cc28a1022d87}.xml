@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{a11c92dd-b59e-4a97-b92e-46c0d38c6536}">
+	<object class="AudioFile" id="{6917a78b-9d4f-413c-87de-cc28a1022d87}">
 		<property name="assetPath">
-			<value>DogSounds/Dog bark 1.wav</value>
+			<value>Hits/Hit_Piano.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>0.61868480725623587</value>
+			<value>6</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{bb4fda12-18f7-4dcd-8a18-c0bdc604fa4a}</destination>

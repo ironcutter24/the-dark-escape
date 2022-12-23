@@ -30,5 +30,10 @@ public class AudioManager : Singleton<AudioManager>
         Instance.ambient.setParameterByName(px.ToString(), 0f);
     }
 
+    public static void PlayHitScare()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/HitScare");
+    }
+
 }
     public enum FMODParameter { CryVol, StrangeMusicVol, WinState }

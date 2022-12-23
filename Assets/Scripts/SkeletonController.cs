@@ -26,7 +26,7 @@ public class SkeletonController : MonoBehaviour
     int current = 0;
     [SerializeField]
     List<Transform> waypoints = new List<Transform>();
-    
+
     bool canWalk = false;
     bool invertedPatrol = false;
 
@@ -57,6 +57,11 @@ public class SkeletonController : MonoBehaviour
         knowsPlayerPosition = false;
     }
 
+    void ScareSFX()
+    {
+        AudioManager.PlayHitScare();
+    }
+
     bool knowsPlayerPosition = false;
     void FixedUpdate()
     {
@@ -64,6 +69,12 @@ public class SkeletonController : MonoBehaviour
         {
             isStanding = Vector2.Distance(rb.position, Controller2D.Pos) < hearingDistance + 1.5f;
             anim.SetBool("IsStanding", isStanding);
+
+            if (isStanding)
+            {
+                Invoke("ScareSFX", .1f);
+            }
+
             return;
         }
 

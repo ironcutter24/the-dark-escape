@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.02.02.00">
-	<object class="AudioFile" id="{0d7e1b84-577b-4d9f-8715-b8b116b96265}">
+	<object class="AudioFile" id="{4aee65ae-f754-4c54-9915-1162b273f61a}">
 		<property name="assetPath">
-			<value>Hits/Hit_Piano.wav</value>
+			<value>Hits/Hit_Drama.wav</value>
 		</property>
 		<property name="frequencyInKHz">
 			<value>44.0999985</value>
@@ -11,7 +11,7 @@
 			<value>2</value>
 		</property>
 		<property name="length">
-			<value>6</value>
+			<value>6.1250113378684805</value>
 		</property>
 		<relationship name="masterAssetFolder">
 			<destination>{bb4fda12-18f7-4dcd-8a18-c0bdc604fa4a}</destination>
