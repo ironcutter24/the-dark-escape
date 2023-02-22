@@ -2,29 +2,14 @@ using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class DeathScreen : MonoBehaviour
 {
-    [SerializeField]
-    CrawlerController crawler;
-
-    [SerializeField]
-    VFXManager VFX;
-
-    [SerializeField]
-    float stopTime = 1.8f;
-
     EventInstance creatureAttack;
 
-    void Start()
+    private void Start()
     {
-        //FMODUnity.RuntimeManager.PlayOneShot("event:/CreatureSteps");
-
-        crawler.InitAnimation();
-        Invoke("StopCrawler", stopTime);
-        Invoke("FadeOut", stopTime + .1f);
-        Invoke("PlayCreatureSFX", stopTime - .4f);
+        creatureAttack = FMODUnity.RuntimeManager.CreateInstance("event:/CreatureAttack");
     }
 
     private void OnDestroy()
@@ -32,18 +17,12 @@ public class DeathScreen : MonoBehaviour
         creatureAttack.release();
     }
 
-    void StopCrawler()
+    public void PlayGoreSFX()
     {
-        crawler.StopMoving();
-    }
-
-    void PlayCreatureSFX()
-    {
-        creatureAttack = FMODUnity.RuntimeManager.CreateInstance("event:/CreatureAttack");
         creatureAttack.start();
     }
 
-    void FadeOut()
+    public void SetGameOver()
     {
         GameOver.Instance.SetTo(true);
     }
